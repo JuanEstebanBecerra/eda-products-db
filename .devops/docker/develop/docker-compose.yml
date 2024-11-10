@@ -1,0 +1,18 @@
+version: '4.2'
+
+services:
+    postgres:
+        image: postgres:17.0
+        container_name: webhooks-db
+        volumes:
+            - ~/storage_block/webhooks_test/data:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: webhooks
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: secret
+        networks:
+            - webhooks
+
+networks:
+    webhooks:
+        external: true
