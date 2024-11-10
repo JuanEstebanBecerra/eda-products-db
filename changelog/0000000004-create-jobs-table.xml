@@ -6,7 +6,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet
-            id="0000000003"
+            id="0000000004"
             author="estebanbecerradev">
         <createTable tableName="jobs">
             <column name="id" type="bigserial">

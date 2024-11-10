@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+            http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+        <changeSet id="202411101437" author="estebanbecerradev">
+
+            <createTable tableName='product_entrances'>
+                <column name="id" type="BIGINT">
+                    <constraints nullable="false" primaryKey="true"/>
+                </column>
+                <column name="created_at" type="TIMESTAMP">
+                    <constraints nullable="true"/>
+                </column>
+                <column name="updated_at" type="TIMESTAMP">
+                    <constraints nullable="true"/>
+                </column>
+                <column name="deleted_at" type="TIMESTAMP">
+                    <constraints nullable="true"/>
+                </column>
+                <column name="user_who_created" type="INTEGER">
+                    <constraints nullable="true"/>
+                </column>
+                <column name="user_who_updated" type="INTEGER">
+                    <constraints nullable="true"/>
+                </column>
+                <column name="user_who_deleted" type="INTEGER">
+                    <constraints nullable="true"/>
+                </column>
+            </createTable>
+
+            <rollback>
+                <dropTable cascadeConstraints="false" tableName="product_entrances"/>
+            </rollback>
+
+        </changeSet>
+    </databaseChangeLog>

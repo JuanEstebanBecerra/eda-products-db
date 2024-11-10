@@ -31,20 +31,6 @@
             <column name="user_who_deleted" type="bigint"/>
         </createTable>
 
-        <insert tableName="users">
-            <column name="name" value="Esteban Becerra"/>
-            <column name="email" value="estebanbecerradev@gmail.com"/>
-            <column name="email_verified_at" valueDate="2024-11-10T00:00:00"/>
-            <column name="password" value="password"/>
-            <column name="remember_token" value=""/>
-            <column name="created_at" valueDate="2024-11-10T00:00:00"/>
-            <column name="updated_at" valueDate="2024-11-10T00:00:00"/>
-            <column name="deleted_at" value="null"/>
-            <column name="user_who_created" value="1"/>
-            <column name="user_who_updated" value="1"/>
-            <column name="user_who_deleted" value="null"/>
-        </insert>
-
         <createTable tableName="password_reset_tokens">
             <column name="email" type="varchar(255)">
                 <constraints nullable="false" primaryKey="true"/>
