@@ -7,19 +7,22 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
             http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-        <changeSet id="202411101438" author="estebanbecerradev">
+        <changeSet id="202411102056" author="estebanbecerradev">
 
-            <createTable tableName='product_entrance_products'>
-                <column name="id" type="BIGINT">
+            <createTable tableName='products'>
+                <column name="id" type="BIGINT" autoIncrement="true">
                     <constraints nullable="false" primaryKey="true"/>
                 </column>
-                <column name="product_entrance_id" type="BIGINT">
+                <column name="supplier_id" type="INTEGER">
                     <constraints nullable="false"/>
                 </column>
-                <column name="product_id" type="BIGINT">
+                <column name="name" type="VARCHAR(255)">
                     <constraints nullable="false"/>
                 </column>
-                <column name="amount" type="INTEGER">
+                <column name="stock" type="INTEGER">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="active" type="BOOLEAN" defaultValue="true">
                     <constraints nullable="false"/>
                 </column>
                 <column name="created_at" type="TIMESTAMP">
@@ -42,30 +45,19 @@
                 </column>
             </createTable>
 
-            <addForeignKeyConstraint  baseColumnNames="product_entrance_id"
-                baseTableName="product_entrance_products"
-                constraintName="fk_product_entrance_id"
+            <addForeignKeyConstraint  baseColumnNames="supplier_id"
+                baseTableName="products"
+                constraintName="fk_supplier_id"
                 deferrable="true"
                 initiallyDeferred="true"
                 onDelete="CASCADE"
                 onUpdate="RESTRICT"
                 referencedColumnNames="id"
-                referencedTableName="product_entrances"
-                validate="true"/>
-
-            <addForeignKeyConstraint  baseColumnNames="product_id"
-                baseTableName="product_entrance_products"
-                constraintName="fk_product_id"
-                deferrable="true"
-                initiallyDeferred="true"
-                onDelete="CASCADE"
-                onUpdate="RESTRICT"
-                referencedColumnNames="id"
-                referencedTableName="products"
+                referencedTableName="suppliers"
                 validate="true"/>
 
             <rollback>
-                <dropTable cascadeConstraints="false" tableName="product_entrance_products"/>
+                <dropTable cascadeConstraints="false" tableName="products"/>
             </rollback>
 
         </changeSet>

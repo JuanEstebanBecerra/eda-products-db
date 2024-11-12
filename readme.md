@@ -12,11 +12,11 @@ asegúrese de realizar las siguientes acciones para que el proyecto funcione cor
 ### Ejecucion de migraciones
 
 ```bash
-docker run --rm --network webhooks -v $(pwd)/liquibase.properties:/liquibase/liquibase.properties -v $(pwd)/changelog.xml:/liquibase/changelog.xml -v $(pwd)/changelog:/liquibase/changelog liquibase --defaults-file=/liquibase/liquibase.properties update
+docker run --rm --network events-network -v $(pwd)/liquibase.properties:/liquibase/liquibase.properties -v $(pwd)/changelog.xml:/liquibase/changelog.xml -v $(pwd)/changelog:/liquibase/changelog liquibase --defaults-file=/liquibase/liquibase.properties update
   ```
 
 ### Rollback de migraciones
 
 ```bash
-docker run --rm --network webhooks -v $(pwd)/liquibase.properties:/liquibase/liquibase.properties -v $(pwd)/changelog.xml:/liquibase/changelog.xml -v $(pwd)/changelog:/liquibase/changelog liquibase --defaults-file=/liquibase/liquibase.properties rollbackCount 1
+docker run --rm --network events-network -v $(pwd)/liquibase.properties:/liquibase/liquibase.properties -v $(pwd)/changelog.xml:/liquibase/changelog.xml -v $(pwd)/changelog:/liquibase/changelog liquibase --defaults-file=/liquibase/liquibase.properties rollbackCount 1
   ```

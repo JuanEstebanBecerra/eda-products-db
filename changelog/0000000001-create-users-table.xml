@@ -9,7 +9,7 @@
             id="0000000001"
             author="estebanbecerradev">
         <createTable tableName="users">
-            <column name="id" type="bigserial">
+            <column name="id" type="bigserial" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)">
@@ -33,7 +33,7 @@
 
         <createTable tableName="password_reset_tokens">
             <column name="email" type="varchar(255)">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="token" type="varchar(255)">
                 <constraints nullable="false"/>
@@ -43,7 +43,7 @@
 
         <createTable tableName="sessions">
             <column name="id" type="varchar(255)">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="user_id" type="bigint" />
             <column name="ip_address" type="varchar(45)" />

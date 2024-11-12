@@ -7,11 +7,23 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
             http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-        <changeSet id="202411101437" author="estebanbecerradev">
+        <changeSet id="202411102055" author="estebanbecerradev">
 
-            <createTable tableName='product_entrances'>
-                <column name="id" type="BIGINT">
+            <createTable tableName='suppliers'>
+                <column name="id" type="BIGINT" autoIncrement="true">
                     <constraints nullable="false" primaryKey="true"/>
+                </column>
+                <column name="nit" type="INTEGER">
+                    <constraints nullable="false" unique="true"/>
+                </column>
+                <column name="name" type="VARCHAR(255)">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="email" type="VARCHAR(255)">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="phone_number" type="VARCHAR(32)">
+                    <constraints nullable="false"/>
                 </column>
                 <column name="created_at" type="TIMESTAMP">
                     <constraints nullable="true"/>
@@ -34,7 +46,7 @@
             </createTable>
 
             <rollback>
-                <dropTable cascadeConstraints="false" tableName="product_entrances"/>
+                <dropTable cascadeConstraints="false" tableName="suppliers"/>
             </rollback>
 
         </changeSet>

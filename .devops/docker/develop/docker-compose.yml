@@ -1,18 +1,18 @@
 version: '4.2'
 
 services:
-    postgres:
+    products-db:
         image: postgres:17.0
-        container_name: webhooks-db
+        container_name: products-db
         volumes:
-            - ~/storage_block/webhooks_test/data:/var/lib/postgresql/data
+            - ~/storage_block/eda/products-db/data:/var/lib/postgresql/data
         environment:
-            POSTGRES_DB: webhooks
-            POSTGRES_USER: root
+            POSTGRES_DB: products
+            POSTGRES_USER: esteban
             POSTGRES_PASSWORD: secret
         networks:
-            - webhooks
+            - events-network
 
 networks:
-    webhooks:
+    events-network:
         external: true
